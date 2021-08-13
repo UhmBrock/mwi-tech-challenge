@@ -1,0 +1,11 @@
+.navbar {
+    background-color: transparent;
+}
+
+.nav-link, .nav-link:visited, .nav-link:hover {
+    color: #DEBF79;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
