@@ -1,9 +1,32 @@
 .App {
   background-color: #222222;
-  min-width: 576px;
+  min-height: 100vh;
 }
 
-.container-fluid {
-  max-width:1920px;
-  width: 100%;
+.navbar-padding {
+    padding-top: 200px;
+}
+
+.negate-navbar-padding {
+    margin-top: -200px;
+}
+
+
+.card-button, .card-button:visited, .card-button:hover {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  background-color: #DEBF79;
+  color: #FFFFFF;
+  font-size: .9rem;
+  padding: .75rem 2.25rem;
+  border: none;
+}
+
+@media(max-width: 600px){
+  .App {
+    min-width: 600px;
+  }
+  .navbar {
+    min-width: 600px;
+  }
 }
