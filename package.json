@@ -1,4 +1,12 @@
 {
   "name": "mwi-tech-challenge",
-  "version": "1.0.1"
+  "version": "1.0.1",
+  "dependencies": {
+    "bootstrap": "^5.0.2",
+    "react-bootstrap": "^2.0.0-beta.4",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.8"
+  }
 }

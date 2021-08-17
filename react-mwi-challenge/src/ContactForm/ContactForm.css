@@ -1,0 +1,27 @@
+input.form-control.grey-input {
+    background-color: #F5F5F5;
+    color: #858585;
+    border: none;
+    border-radius: 0px;
+    font-family: 'Poppins', sans-serif;    
+    padding: 1.5em 0em 2em 1em;
+} 
+
+textarea.form-control.grey-input {
+    background-color: #F5F5F5;
+    color: #858585;
+    border: none;
+    border-radius: 0px;
+    font-family: 'Poppins', sans-serif;    
+    padding: 1em 0em 5em 1em;    
+    resize: none;
+}
+
+.form-header {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.required-field {
+    border: #800000 1px solid !important;
+}

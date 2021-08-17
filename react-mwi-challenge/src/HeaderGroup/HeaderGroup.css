@@ -1,0 +1,28 @@
+.headerGroup h1, .headerGroup h2,.headerGroup  h3,.headerGroup  h4,.headerGroup h5,.headerGroup p {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+}
+
+.headerGroup h1, .headerGroup h2,.headerGroup  h3,.headerGroup  h4,.headerGroup h5 {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.underline {
+    text-decoration: underline 3px solid #DEBF79;
+    text-underline-position: under;
+    text-underline-offset: 4px;
+    margin-bottom: 5px;
+}
+
+.headerGroup a, .headerGroup a:active, .headerGroup a:hover, .headerGroup a:visited,
+.headerGroup button, .headerGroup button:hover, .headerGroup button:focus {
+    color: #DEBF79;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}

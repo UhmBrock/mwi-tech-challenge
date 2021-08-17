@@ -1,0 +1,12 @@
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #858585;
+}
+
+.icon-holder {
+    height: 125px;
+}
