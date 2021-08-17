@@ -11,7 +11,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<div className="container-fluid  navbar-padding">
+				<div className="container navbar-padding">
 					<Switch>
 						<Route path="/contact">
 							<Navbar linkAddress="/" linkDisplayName="home"/>

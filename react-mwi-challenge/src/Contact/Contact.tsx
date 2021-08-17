@@ -1,51 +1,79 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import './Contact.css';
 
+import ContactForm from '../ContactForm/ContactForm';
 import HeaderGroup from '../HeaderGroup/HeaderGroup';
 import React from 'react';
 
-type ContactProps = {
-
+type ContactJSONData = {
+    success: boolean,
+    data: Array<{
+            content: string,
+            created_at: string,
+            id: number,
+            page_id: number,
+            title: string,
+            updated_at: string
+        }>
 };
 
-const Contact = ({}: ContactProps): JSX.Element => {
+type HeadingData = {
+    [index: number]: {
+        title: string,
+        content: string
+    }
+}
+
+const Contact = (): JSX.Element => {
+
+    const [jsonData, setJsonData] = React.useState<ContactJSONData>();
+    const [headingData, setHeadingData] = React.useState<HeadingData>({
+        4: { title: "Failed to Load Content", content: "Please try refreshing the page"}
+    });
+
+    React.useEffect(() => {
+        fetch('https://api.mwi.dev/content/contact').then(
+            response => response.json()
+        ).then((responseJson) => {
+            setJsonData(responseJson);
+            console.log(responseJson);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    },[])
+
+    React.useEffect(() => {
+
+        if(jsonData === undefined || !jsonData.success || jsonData.data.length === 0) {
+            return;
+        }
+
+        const newHeadingData: HeadingData = {...headingData};
+
+        for(let headingJSON of jsonData.data) {
+            newHeadingData[headingJSON.id] = { title: headingJSON.title, content: headingJSON.content };
+        }
+        
+        setHeadingData(newHeadingData);
+        
+    },[jsonData]);
 
     return (
         <div className="negate-navbar-padding">
             <div className="row"> 
                 <div className="black-bg col-md-6 col-12 d-flex align-items-center">
                     <div className="col-12 px-5">
-                        <HeaderGroup headerText="Heading One">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates dolores commodi minus a, culpa error perferendis 
-                                nulla obcaecati similique, dolor iusto itaque assumenda, praesentium cum neque sint ratione libero!
+                        <HeaderGroup headerText={headingData[4].title}>
+                            <p>{headingData[4].content}
                             </p>
                         </HeaderGroup>           
                     </div>
                 </div>
                 <div className="white-bg col-md-6 col-12 d-flex align-items-center">
                     <div className="col-12 px-5">
-                        <form className="row">
-                            <div className="col-12 mb-3">
-                                <h1 className="form-header">Heading Two</h1>
-                            </div>
-                            <div className="col-md-6 col-sm-12 mb-3">
-                                <input type="text" className="form-control grey-input" placeholder="First name" aria-label="First name"/>
-                            </div>
-                            <div className="col-md-6 col-sm-12 mb-3">
-                                <input type="text" className="form-control grey-input" placeholder="Last name" aria-label="Last name"/>
-                            </div>
-                            <div className="col-md-6 col-sm-12 mb-3">
-                                <input type="text" className="form-control grey-input" placeholder="Title" aria-label="Title"/>
-                            </div>
-                            <div className="col-md-6 col-sm-12 mb-3">
-                                <input type="email" className="form-control grey-input" placeholder="Email" aria-label="Email"/>
-                            </div>
-                            <div className="col-12 mb-3">
-                                <textarea className="form-control grey-input" placeholder="Message" aria-label="Message"/>
-                            </div>
-                            <div className="w-100 text-center mb-3">
-                                <button type="submit" className="card-button">Submit</button>
-                            </div>
-                        </form>
+                        <ContactForm/>
                     </div>
                 </div>
             </div>            
