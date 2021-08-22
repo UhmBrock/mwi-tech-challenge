@@ -3,10 +3,25 @@
   "version": "1.0.1",
   "dependencies": {
     "bootstrap": "^5.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "react-bootstrap": "^2.0.0-beta.4",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.5",
+    "sequelize-typescript": "^2.1.0"
+  },
+  "scripts": {
+    "seed-db": "npx sequelize db:seed:all",
+    "start-db": "node server.js"
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.8"
+    "@types/node": "^16.7.1",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/validator": "^13.6.3",
+    "sequelize-cli": "^6.2.0"
   }
 }
