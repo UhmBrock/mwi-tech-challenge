@@ -30,7 +30,7 @@ const Home = (): JSX.Element => {
     });
 
     React.useEffect(() => {
-        fetch('https://api.mwi.dev/content/home').then(
+        fetch('http://localhost:8080/content/home').then(
             response => response.json()
         ).then((responseJson) => {
             setJsonData(responseJson);

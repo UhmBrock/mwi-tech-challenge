@@ -50,8 +50,11 @@ const ContactForm = (): JSX.Element => {
 
         const jsonForm = JSON.stringify(formData);
 
-        fetch('https://api.mwi.dev/contact', {
+        fetch('http://localhost:8080/contact', {
             method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: jsonForm
         }).then((response) => {
             return response.json();
@@ -69,10 +72,10 @@ const ContactForm = (): JSX.Element => {
                 <h1 className="form-header">Heading Two</h1>
             </div>
             <div className="col-md-6 col-sm-12 mb-3">
-                <input type="text" className={`form-control grey-input ${formError['first_name'] ? 'required-field' : ''}`} name="first_name" onChange={handleChange} placeholder="First name" aria-label="First name"/>
+                <input type="text" className={`form-control grey-input ${formError['firstname'] ? 'required-field' : ''}`} name="firstname" onChange={handleChange} placeholder="First name" aria-label="First name"/>
             </div>
             <div className="col-md-6 col-sm-12 mb-3">
-                <input type="text" className={`form-control grey-input ${formError['last_name'] ? 'required-field' : ''}`} name="last_name" onChange={handleChange}  placeholder="Last name" aria-label="Last name"/>
+                <input type="text" className={`form-control grey-input ${formError['lastname'] ? 'required-field' : ''}`} name="lastname" onChange={handleChange}  placeholder="Last name" aria-label="Last name"/>
             </div>
             <div className="col-md-6 col-sm-12 mb-3">
                 <input type="text" className={`form-control grey-input ${formError['title'] ? 'required-field' : ''}`} name="title" onChange={handleChange}  placeholder="Title" aria-label="Title"/>

@@ -33,7 +33,7 @@ const Contact = (): JSX.Element => {
     });
 
     React.useEffect(() => {
-        fetch('https://api.mwi.dev/content/contact').then(
+        fetch('http://localhost:8080/content/contact').then(
             response => response.json()
         ).then((responseJson) => {
             setJsonData(responseJson);
